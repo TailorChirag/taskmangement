@@ -15,6 +15,7 @@ import example.com.taskmanagement.repositories.UserRepository;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,7 @@ import org.springframework.stereotype.Service;
 import javax.crypto.SecretKey;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -67,29 +69,28 @@ public class services implements userService, taskService{
         if(!bCryptPasswordEncoder.matches(password, user.getHashedPassword())){
             throw new PasswordNotFoundException("Password does not match");
         }
+        Token token = getToken(user);
 
-        LocalDate currentDate = LocalDate.now();
-        LocalDate expiryDate = currentDate.plusDays(30);
+        // TODO 1: Change the above token to a JWT Token
 
-        // Convert LocalDate to java.util.Date
-        Date expiryDateAsDate = Date.from(expiryDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        Token savedToken = tokenRepository.save(token);
 
-        SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+        return savedToken;
+    }
+    private static Token getToken(User user) {
+        LocalDate today = LocalDate.now();
+        LocalDate thirtyDaysLater = today.plus(30, ChronoUnit.DAYS);
 
-        String jws = Jwts.builder()
-                .setSubject(username)
-                .setIssuedAt(new Date())
-                .setExpiration(expiryDateAsDate)
-                .signWith(key)
-                .compact();
+        // Convert LocalDate to Date
+        Date expiryDate = Date.from(thirtyDaysLater.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
         Token token = new Token();
         token.setUser(user);
-        token.setExpiryAt(expiryDateAsDate);
-        token.setValue(jws);
-
-        return tokenRepository.save(token);
+        token.setExpiryAt(expiryDate);
+        token.setValue(RandomStringUtils.randomAlphanumeric(128));
+        return token;
     }
+
 
     @Override
     public Task createTask(Task task) throws TaskAlreadyExistsException {

@@ -26,11 +26,10 @@ class TaskmanagementApplicationTests {
 
 //    @Test
 //    @Commit
-//    @Transactional
-//    void storeRegisteredClientDetails(){
-//        RegisteredClient oidcClient = RegisteredClient.withId(UUID.randomUUID().toString())
+//    void storeRegisteredClientIntoDB() {
+//                RegisteredClient oidcClient = RegisteredClient.withId(UUID.randomUUID().toString())
 //                .clientId("oidc-client")
-//                .clientSecret("{noop}student")
+//                .clientSecret("{noop}secret")
 //                .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
 //                .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
 //                .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
@@ -39,13 +38,14 @@ class TaskmanagementApplicationTests {
 //                .scope(OidcScopes.OPENID)
 //                .scope(OidcScopes.PROFILE)
 //                .scope("ADMIN")
-//                .scope("INSTRUCTOR")
 //                .scope("STUDENT")
+//                .scope("MENTOR") // Role
 //                .clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build())
 //                .build();
 //
-//        registeredClientRepository.save(oidcClient);
-
-    }
+//                registeredClientRepository.save(oidcClient);
+//
+//    }
+}
 
 
