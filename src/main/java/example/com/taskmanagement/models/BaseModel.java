@@ -1,4 +1,4 @@
-package com.scaler.selfuserservice.models;
+package example.com.taskmanagement.models;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,5 +15,5 @@ public class BaseModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private boolean deleted = false;
+
 }

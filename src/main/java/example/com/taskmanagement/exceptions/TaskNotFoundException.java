@@ -1,8 +1,8 @@
-package com.scaler.productservice.exception;
+package example.com.taskmanagement.exceptions;
 
-public class ProductNotFoundException extends Exception{
+public class TaskNotFoundException extends Exception{
 
-    public ProductNotFoundException(String message) {
+    public TaskNotFoundException(String message) {
         super(message);
     }
 }

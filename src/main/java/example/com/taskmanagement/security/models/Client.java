@@ -1,11 +1,11 @@
-package com.scaler.selfuserservice.security.models;
-
-import java.time.Instant;
+package example.com.taskmanagement.security.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
+import java.time.Instant;
 
 @Entity
 @Table(name = "`client`")

@@ -1,10 +1,10 @@
-package com.scaler.selfuserservice.security.models;
-
-import java.time.Instant;
+package example.com.taskmanagement.security.models;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.time.Instant;
 
 @Getter
 @Setter

@@ -1,8 +1,8 @@
-package com.scaler.selfuserservice.security.services;
+package example.com.taskmanagement.security.services;
 
-import com.scaler.selfuserservice.models.User;
-import com.scaler.selfuserservice.repositiories.UserRepository;
-import com.scaler.selfuserservice.security.models.CustomUserDetails;
+import example.com.taskmanagement.models.User;
+import example.com.taskmanagement.repositories.UserRepository;
+import example.com.taskmanagement.security.models.CustomUserDetails;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -21,7 +21,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<User> optionalUser = userRepository.findByEmail(username);
+        Optional<User> optionalUser = userRepository.findByUsername(username);
 
         if (optionalUser.isEmpty()){
             throw new UsernameNotFoundException("User with "+ username + " does not exist.");

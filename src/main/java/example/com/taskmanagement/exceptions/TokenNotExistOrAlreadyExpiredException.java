@@ -1,4 +1,4 @@
-package com.scaler.selfuserservice.exceptions;
+package example.com.taskmanagement.exceptions;
 
 public class TokenNotExistOrAlreadyExpiredException extends Exception{
 

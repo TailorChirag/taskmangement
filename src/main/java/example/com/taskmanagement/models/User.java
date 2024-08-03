@@ -1,4 +1,4 @@
-package com.scaler.selfuserservice.models;
+package example.com.taskmanagement.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,11 +13,12 @@ import java.util.List;
 @Entity
 public class User extends BaseModel{
 
+
     private String name;
-    private String email;
+    private String username;
     private String hashedPassword;
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
-    private boolean isEmailVerified;
+
 
 }

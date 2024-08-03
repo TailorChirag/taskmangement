@@ -1,13 +1,12 @@
-package com.scaler.selfuserservice.security.repositiory;
+package example.com.taskmanagement.security.repositiory;
 
-import java.util.Optional;
-
-import com.scaler.selfuserservice.security.models.Authorization;
-
+import example.com.taskmanagement.security.models.Authorization;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
 
 @Repository
 public interface AuthorizationRepository extends JpaRepository<Authorization, String> {

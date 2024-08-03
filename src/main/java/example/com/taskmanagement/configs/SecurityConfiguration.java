@@ -1,4 +1,4 @@
-package com.scaler.selfuserservice.configs;
+package example.com.taskmanagement.configs;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

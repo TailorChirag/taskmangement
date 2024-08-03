@@ -1,7 +1,7 @@
-package com.scaler.selfuserservice.security.models;
+package example.com.taskmanagement.security.models;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.scaler.selfuserservice.models.Role;
+import example.com.taskmanagement.models.Role;
 import org.springframework.security.core.GrantedAuthority;
 
 @JsonDeserialize

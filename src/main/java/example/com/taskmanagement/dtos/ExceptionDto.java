@@ -1,4 +1,4 @@
-package com.scaler.selfuserservice.dtos;
+package example.com.taskmanagement.dtos;
 
 import lombok.Getter;
 import lombok.Setter;

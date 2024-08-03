@@ -1,11 +1,8 @@
-package com.scaler.selfuserservice.security.services;
-
-import java.util.HashSet;
-import java.util.Set;
+package example.com.taskmanagement.security.services;
 
 
-import com.scaler.selfuserservice.security.models.AuthorizationConsent;
-import com.scaler.selfuserservice.security.repositiory.AuthorizationConsentRepository;
+import example.com.taskmanagement.security.models.AuthorizationConsent;
+import example.com.taskmanagement.security.repositiory.AuthorizationConsentRepository;
 import org.springframework.dao.DataRetrievalFailureException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -16,6 +13,9 @@ import org.springframework.security.oauth2.server.authorization.client.Registere
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Component
 public class JpaOAuth2AuthorizationConsentService implements OAuth2AuthorizationConsentService {

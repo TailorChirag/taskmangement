@@ -1,4 +1,4 @@
-package com.scaler.selfuserservice.dtos;
+package example.com.taskmanagement.dtos;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 public class LoginRequestDto {
 
-    private String email;
+    private String username;
     private String password;
 
 }

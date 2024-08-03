@@ -1,6 +1,6 @@
-package com.scaler.selfuserservice.security.repositiory;
+package example.com.taskmanagement.security.repositiory;
 
-import com.scaler.selfuserservice.security.models.Client;
+import example.com.taskmanagement.security.models.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

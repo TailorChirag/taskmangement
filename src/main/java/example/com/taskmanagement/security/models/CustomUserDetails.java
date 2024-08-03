@@ -1,8 +1,8 @@
-package com.scaler.selfuserservice.security.models;
+package example.com.taskmanagement.security.models;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.scaler.selfuserservice.models.Role;
-import com.scaler.selfuserservice.models.User;
+import example.com.taskmanagement.models.Role;
+import example.com.taskmanagement.models.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -47,7 +47,7 @@ public class CustomUserDetails implements UserDetails {
        this.credentialsNonExpired = true;
        this.enabled = true;
        this.password = user.getHashedPassword();
-       this.username = user.getEmail();
+       this.username = user.getUsername();
        this.usName = user.getName();
        this.userId = user.getId();
 
