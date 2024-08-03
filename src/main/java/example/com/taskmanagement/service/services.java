@@ -17,6 +17,9 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -102,13 +105,10 @@ public class services implements userService, taskService{
     }
 
     @Override
-    public List<Task> getTasks() throws TaskNotFoundException {
+    public Page<Task> getTasks(int page, int size) throws TaskNotFoundException {
 
-        if (taskRepository.findAll().isEmpty()){
-            throw new TaskNotFoundException(" There is no available task ");
-        }
-
-        return taskRepository.findAll();
+        Pageable pageable = PageRequest.of(page, size);
+        return taskRepository.findAll(pageable);
     }
 
     @Override
@@ -144,4 +144,6 @@ public class services implements userService, taskService{
         }
         taskRepository.deleteById(id);
     }
+
+
 }

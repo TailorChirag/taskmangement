@@ -12,17 +12,18 @@ import example.com.taskmanagement.models.Token;
 import example.com.taskmanagement.models.User;
 import example.com.taskmanagement.models.Task;
 import example.com.taskmanagement.service.services;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-public class UserController {
+public class Controller {
 
     private services services;
 
-    public UserController(services services) {
+    public Controller(services services) {
         this.services = services;
     }
 
@@ -47,8 +48,9 @@ public class UserController {
     }
 
     @GetMapping("/tasks")
-    public List<Task> getTasks() throws TaskNotFoundException {
-        return services.getTasks();
+    public Page<Task> getTasks(@RequestParam(defaultValue = "0") int page,
+                               @RequestParam(defaultValue = "10") int size) throws TaskNotFoundException {
+        return services.getTasks(page, size);
     }
 
     @PutMapping("/tasks/{id}")
